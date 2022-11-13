@@ -6,7 +6,6 @@ body {
   padding: 0;
 }
 
-
 div[data=":"] > span[data*=":"] {
   background-color: #d00;
 }
@@ -52,13 +51,13 @@ div[data="9"] > span[data*="9"] {
 }
 
 time {
-  --size: calc(100vw / (8 * 3 + 2));
+  --cell-size: calc(100vw / (8 * 3 + 2));
 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  margin: var(--size);
+  padding: var(--cell-size);
 }
 
 div {
@@ -66,16 +65,19 @@ div {
   flex-wrap: wrap;
   flex: 0 1 calc(100% / 8);
   box-sizing: border-box;
-  border: 8px solid #000;
+  padding: calc(var(--cell-size) / 8);
 }
 
 span {
+  --cell-border-width: calc(var(--cell-size) / 16);
+  --cell-border-radius: calc(var(--cell-size) / 8);
+
   box-sizing: border-box;
   background-color: #300;
-  border: 2px solid black;
-  border-radius: 8px;
-  flex: 0 0 calc(100% / 3);
-  width: var(--size);
-  height: var(--size);
+  border: var(--cell-border-width) solid #000;
+  border-radius: var(--cell-border-radius);
+  flex: 0 1 calc(100% / 3);
+  width: var(--cell-size);
+  height: var(--cell-size);
   transition: background-color 0.25s ease;
 }
