@@ -18,7 +18,7 @@ const start = (clock) => {
   const tick = (datetime = new Date()) => {
     clock.setAttribute("datetime", datetime.toISOString());
 
-    const separator = [, ":", " "].at(datetime.getMilliseconds() < 500);
+    const separator = datetime.getMilliseconds() < 500 ? ":" : " "
 
     const digits = [
       datetime.getHours(),
