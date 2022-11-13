@@ -3,35 +3,37 @@
  */
 const start = (clock) => {
   /** @type {HTMLTemplateElement} */
-  const template = clock.children[0];
+  const template = clock.children[0]
 
-  for (i = 0; i < 8; i++) {
-    clock.appendChild(template.content.cloneNode(true));
+  for (let i = 0; i < 8; i++) {
+    clock.appendChild(template.content.cloneNode(true))
   }
 
-  template.remove();
+  template.remove()
 
   /**
    * @param {Date} datetime
    * @param {string} time
    */
   const tick = (datetime = new Date()) => {
-    clock.setAttribute("datetime", datetime.toISOString());
+    clock.setAttribute('datetime', datetime.toISOString())
 
-    const separator = datetime.getMilliseconds() < 500 ? ":" : " "
+    const separator = datetime.getMilliseconds() < 500 ? ':' : ' '
 
     const digits = [
       datetime.getHours(),
       datetime.getMinutes(),
-      datetime.getSeconds(),
+      datetime.getSeconds()
     ]
-      .map((value) => value.toString().padStart(2, "0"))
-      .join(separator);
+      .map((value) => value.toString().padStart(2, '0'))
+      .join(separator)
 
-    for (i = 0; i < 8; i++) {
-      clock.children.item(i).setAttribute("data", digits[i]);
+    for (let i = 0; i < 8; i++) {
+      clock.children.item(i).setAttribute('data', digits[i])
     }
-  };
+  }
 
-  setInterval(tick, 100);
-};
+  setInterval(tick, 100)
+}
+
+module.exports = start
