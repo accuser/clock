@@ -1,9 +1,29 @@
 {
+  "name": "clock",
+  "description": "A simple clock demonstrating the use of `<time>` and `<template>` HTML tags and partial CSS attribute matching.",
+  "version": "1.0.0",
+  "main": "src/clock.js",
   "devDependencies": {
     "eslint": "^8.27.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.5.1",
     "eslint-plugin-promise": "^6.1.1"
-  }
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/accuser/clock.git"
+  },
+  "keywords": [
+    "clock"
+  ],
+  "author": "Matthew Gibbons <matthew.gibbons@multiverse.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/accuser/clock/issues"
+  },
+  "homepage": "https://github.com/accuser/clock#readme"
 }
