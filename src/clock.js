@@ -1,6 +1,6 @@
 /**
  * @param {HTMLTimeElement} clock - the target <time> element 
- * @param {HTMLTemplateElement} template - matrix template
+ * @param {HTMLTemplateElement} template - dot matrix template
  */
 const start = (clock, template = clock.children[0]) => {
 	for (let i = 0; i < 8; i++) {
