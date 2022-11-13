@@ -1,4 +1,5 @@
 body {
+  position: relative;
   background-color: #000;
   width: 100%;
   height: 100%;
@@ -51,13 +52,19 @@ div[data="9"] > span[data*="9"] {
 }
 
 time {
-  --cell-size: calc(100vw / (8 * 3 + 2));
+  --cell-size: calc(100vw / (1 + 8 * 3 + 1 + 1));
 
-  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right:0;
+  bottom: 0;
+  margin: auto;
+  display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  padding: var(--cell-size);
+  padding: 0 var(--cell-size);
 }
 
 div {
