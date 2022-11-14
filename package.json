@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/accuser/clock#readme",
   "prettier": {
+    "singleQuote": true,
     "useTabs": true
   }
 }

@@ -13,24 +13,22 @@ const start = (clock, template = clock.children[0]) => {
 	 * @param {Date} datetime - the datetime to render
 	 */
 	const tick = (datetime = new Date()) => {
-		clock.setAttribute("datetime", datetime.toISOString());
+		clock.setAttribute('datetime', datetime.toISOString());
 
-		const separator = datetime.getMilliseconds() < 500 ? ":" : " ";
+		const separator = datetime.getMilliseconds() < 500 ? ':' : ' ';
 
 		const digits = [
 			datetime.getHours(),
 			datetime.getMinutes(),
 			datetime.getSeconds(),
 		]
-			.map((value) => value.toString().padStart(2, "0"))
+			.map((value) => value.toString().padStart(2, '0'))
 			.join(separator);
 
 		for (let i = 0; i < 8; i++) {
-			clock.children.item(i).setAttribute("data", digits[i]);
+			clock.children.item(i).setAttribute('data', digits[i]);
 		}
 	};
 
 	setInterval(tick, 100);
 };
-
-module.exports = start;
