@@ -3,12 +3,6 @@
  * @param {HTMLTemplateElement} template - dot matrix template
  */
 const start = (clock, template = clock.children[0]) => {
-	for (let i = 0; i < 8; i++) {
-		clock.appendChild(template.content.cloneNode(true));
-	}
-
-	template.remove();
-
 	/**
 	 * Format the date.
 	 *
@@ -30,6 +24,14 @@ const start = (clock, template = clock.children[0]) => {
 			.map((value) => value.toString().padStart(2, '0'))
 			.join(separator);
 	};
+
+	const time = formatTime(new Date());
+
+	for (let i = 0; i < time.length; i++) {
+		clock.appendChild(template.content.cloneNode(true));
+	}
+
+	template.remove();
 
 	/**
 	 * Render the current time.
