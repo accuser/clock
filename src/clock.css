@@ -7,67 +7,28 @@ body {
 	padding: 0;
 }
 
-div[data=':'] > span[data*=':'] {
-	background-color: #d00;
-}
-
-div[data='0'] > span[data*='0'] {
-	background-color: #d00;
-}
-
-div[data='1'] > span[data*='1'] {
-	background-color: #d00;
-}
-
-div[data='2'] > span[data*='2'] {
-	background-color: #d00;
-}
-
-div[data='3'] > span[data*='3'] {
-	background-color: #d00;
-}
-
-div[data='4'] > span[data*='4'] {
-	background-color: #d00;
-}
-
-div[data='5'] > span[data*='5'] {
-	background-color: #d00;
-}
-
-div[data='6'] > span[data*='6'] {
-	background-color: #d00;
-}
-
-div[data='7'] > span[data*='7'] {
-	background-color: #d00;
-}
-
-div[data='8'] > span[data*='8'] {
-	background-color: #d00;
-}
-
-div[data='9'] > span[data*='9'] {
-	background-color: #d00;
-}
-
-time {
-	--cell-size: calc(100vw / (1 + 8 * 3 + 1 + 1));
-
+div.container {
 	position: absolute;
 	left: 0;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	margin: auto;
-	display: inline-flex;
-	flex-wrap: wrap;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-content: center;
+}
+
+time {
+	--cell-size: calc(100vw / (1 + 8 * 3 + 1 + 1));
+
+	display: inline-flex;
+	flex-wrap: wrap;
 	padding: 0 var(--cell-size);
 }
 
-div {
+time > div {
 	display: flex;
 	flex-wrap: wrap;
 	flex: 0 1 calc(100% / 8);
@@ -88,4 +49,48 @@ span {
 	width: var(--cell-size);
 	height: var(--cell-size);
 	transition: background-color 0.25s ease;
+}
+
+time > div[data=':'] > span[data*=':'] {
+	background-color: #d00;
+}
+
+time > div[data='0'] > span[data*='0'] {
+	background-color: #d00;
+}
+
+time > div[data='1'] > span[data*='1'] {
+	background-color: #d00;
+}
+
+time > div[data='2'] > span[data*='2'] {
+	background-color: #d00;
+}
+
+time > div[data='3'] > span[data*='3'] {
+	background-color: #d00;
+}
+
+time > div[data='4'] > span[data*='4'] {
+	background-color: #d00;
+}
+
+time > div[data='5'] > span[data*='5'] {
+	background-color: #d00;
+}
+
+time > div[data='6'] > span[data*='6'] {
+	background-color: #d00;
+}
+
+time > div[data='7'] > span[data*='7'] {
+	background-color: #d00;
+}
+
+time > div[data='8'] > span[data*='8'] {
+	background-color: #d00;
+}
+
+time > div[data='9'] > span[data*='9'] {
+	background-color: #d00;
 }
