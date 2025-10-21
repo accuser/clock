@@ -30,17 +30,27 @@ const start = (clock, template = clock.children[1]) => {
 	/**
 	 * Render the current time.
 	 */
-	const tick = (datetime = new Date()) => {
+	let lastTime = '';
+
+	const tick = () => {
+		const datetime = new Date();
 		const date = formatDate(datetime);
 		const time = formatTime(datetime);
 
-		clock.setAttribute('datetime', date);
-		clock.children.item(0).textContent = time;
+		// Only update DOM if the time has actually changed
+		if (time !== lastTime) {
+			clock.setAttribute('datetime', date);
+			clock.children.item(0).textContent = time;
 
-		for (let i = 0; i < time.length; i++) {
-			clock.children.item(i + 1).setAttribute('data', time[i]);
+			for (let i = 0; i < time.length; i++) {
+				clock.children.item(i + 1).setAttribute('data', time[i]);
+			}
+
+			lastTime = time;
 		}
+
+		requestAnimationFrame(tick);
 	};
 
-	setInterval(tick, 100);
+	requestAnimationFrame(tick);
 };
