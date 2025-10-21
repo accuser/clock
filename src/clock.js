@@ -17,11 +17,7 @@ const start = (clock, template = clock.children[1]) => {
 	 * @param {Date} datetime - datetime to format
 	 * @return {string} the formatted datetime
 	 */
-	const formatTime = (datetime) => {
-		return [datetime.getHours(), datetime.getMinutes(), datetime.getSeconds()]
-			.map((value) => value.toString().padStart(2, '0'))
-			.join(':');
-	};
+	const formatTime = (datetime) => datetime.toLocaleTimeString('en-GB', { "hour12": false });
 
 	const time = formatTime(new Date());
 
@@ -39,15 +35,7 @@ const start = (clock, template = clock.children[1]) => {
 		const time = formatTime(datetime);
 
 		clock.setAttribute('datetime', date);
-
-		// Update accessible text for screen readers
-		const accessibleTime = datetime.toLocaleTimeString('en-GB', {
-			hour: 'numeric',
-			minute: '2-digit',
-			second: '2-digit'
-		});
-
-		clock.children.item(0).textContent = accessibleTime;
+		clock.children.item(0).textContent = time;
 
 		for (let i = 0; i < time.length; i++) {
 			clock.children.item(i + 1).setAttribute('data', time[i]);
