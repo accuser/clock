@@ -53,8 +53,8 @@ span {
 	--cell-border-radius: calc(var(--cell-size) / 8);
 
 	box-sizing: border-box;
-	background-color: #300;
-	background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d00  ' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+	background-color: #1a0000;
+	background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ff0000' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 	border: var(--cell-border-width) solid #000;
 	border-radius: var(--cell-border-radius);
 	flex: 0 1 calc(100% / 3);
@@ -64,45 +64,45 @@ span {
 }
 
 time > div[data=':'] > span[data*=':'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
 
 time > div[data='0'] > span[data*='0'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
 
 time > div[data='1'] > span[data*='1'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
 
 time > div[data='2'] > span[data*='2'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
 
 time > div[data='3'] > span[data*='3'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
 
 time > div[data='4'] > span[data*='4'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
 
 time > div[data='5'] > span[data*='5'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
 
 time > div[data='6'] > span[data*='6'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
 
 time > div[data='7'] > span[data*='7'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
 
 time > div[data='8'] > span[data*='8'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
 
 time > div[data='9'] > span[data*='9'] {
-	background-color: #d00;
+	background-color: #ff3333;
 }
