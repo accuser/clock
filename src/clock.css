@@ -65,6 +65,22 @@ span {
 
 time > div[data=':'] > span[data*=':'] {
 	background-color: #ff3333;
+	animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+	0%, 50% {
+		background-color: #ff3333;
+	}
+	50.01%, 100% {
+		background-color: #1a0000;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	time > div[data=':'] > span[data*=':'] {
+		animation: none;
+	}
 }
 
 time > div[data='0'] > span[data*='0'] {
