@@ -2,7 +2,7 @@
  * @param {HTMLTimeElement} clock - the target <time> element
  * @param {HTMLTemplateElement} template - dot matrix template
  */
-const start = (clock, template = clock.children[0]) => {
+const start = (clock, template = clock.children[1]) => {
 	/**
 	 * Format the date.
 	 *
@@ -42,8 +42,17 @@ const start = (clock, template = clock.children[0]) => {
 
 		clock.setAttribute('datetime', date);
 
+		// Update accessible text for screen readers
+		const accessibleTime = datetime.toLocaleTimeString('en-GB', {
+			hour: 'numeric',
+			minute: '2-digit',
+			second: '2-digit'
+		});
+
+		clock.children.item(0).textContent = accessibleTime;
+
 		for (let i = 0; i < time.length; i++) {
-			clock.children.item(i).setAttribute('data', time[i]);
+			clock.children.item(i + 1).setAttribute('data', time[i]);
 		}
 	};
 
