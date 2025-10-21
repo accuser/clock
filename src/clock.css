@@ -48,7 +48,7 @@ time > div {
 	padding: calc(var(--cell-size) / 8);
 }
 
-span {
+time > div > span {
 	--cell-border-width: calc(var(--cell-size) / 16);
 	--cell-border-radius: calc(var(--cell-size) / 8);
 
