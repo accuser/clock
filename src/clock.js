@@ -18,7 +18,8 @@ const start = (clock, template = clock.children[1]) => {
 	 * @return {string} the formatted datetime
 	 */
 	const formatTime = (datetime) => {
-		const separator = datetime.getMilliseconds() < 500 ? ':' : ' ';
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const separator = prefersReducedMotion || datetime.getMilliseconds() < 500 ? ':' : ' ';
 
 		return [datetime.getHours(), datetime.getMinutes(), datetime.getSeconds()]
 			.map((value) => value.toString().padStart(2, '0'))
