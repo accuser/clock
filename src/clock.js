@@ -31,6 +31,7 @@ const start = (clock, template = clock.children[1]) => {
 	 * Render the current time.
 	 */
 	let lastTime = '';
+	let lastMinute = '';
 
 	const tick = () => {
 		const datetime = new Date();
@@ -40,7 +41,13 @@ const start = (clock, template = clock.children[1]) => {
 		// Only update DOM if the time has actually changed
 		if (time !== lastTime) {
 			clock.setAttribute('datetime', date);
-			clock.children.item(0).textContent = time;
+
+			// Only update accessible text when the minute changes (not every second)
+			const currentMinute = time.substring(0, 5); // "HH:MM"
+			if (currentMinute !== lastMinute) {
+				clock.children.item(0).textContent = time;
+				lastMinute = currentMinute;
+			}
 
 			for (let i = 0; i < time.length; i++) {
 				clock.children.item(i + 1).setAttribute('data', time[i]);
