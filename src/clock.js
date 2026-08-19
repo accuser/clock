@@ -17,7 +17,22 @@ const start = (clock, template = clock.children[1]) => {
 	 * @param {Date} datetime - datetime to format
 	 * @return {string} the formatted datetime
 	 */
-	const formatTime = (datetime) => datetime.toLocaleTimeString('en-GB', { "hour12": false });
+	const formatTime = (datetime) => datetime.toLocaleTimeString('en-GB', { hour12: false });
+
+	/**
+	 * Format the time to the minute, for the accessible text. Announcing every
+	 * second would flood assistive technology, so the text is deliberately no
+	 * more precise than the rate at which it is refreshed.
+	 *
+	 * @param {Date} datetime - datetime to format
+	 * @return {string} the formatted datetime
+	 */
+	const formatMinute = (datetime) =>
+		datetime.toLocaleTimeString('en-GB', {
+			hour12: false,
+			hour: '2-digit',
+			minute: '2-digit',
+		});
 
 	const time = formatTime(new Date());
 
@@ -42,11 +57,11 @@ const start = (clock, template = clock.children[1]) => {
 		if (time !== lastTime) {
 			clock.setAttribute('datetime', date);
 
-			// Only update accessible text when the minute changes (not every second)
-			const currentMinute = time.substring(0, 5); // "HH:MM"
-			if (currentMinute !== lastMinute) {
-				clock.children.item(0).textContent = time;
-				lastMinute = currentMinute;
+			const minute = formatMinute(datetime);
+
+			if (minute !== lastMinute) {
+				clock.children.item(0).textContent = minute;
+				lastMinute = minute;
 			}
 
 			for (let i = 0; i < time.length; i++) {
@@ -56,8 +71,9 @@ const start = (clock, template = clock.children[1]) => {
 			lastTime = time;
 		}
 
-		requestAnimationFrame(tick);
+		// Sleep until the next second boundary rather than waking every frame
+		setTimeout(tick, 1000 - (Date.now() % 1000));
 	};
 
-	requestAnimationFrame(tick);
+	tick();
 };
